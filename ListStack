@@ -1,0 +1,85 @@
+import java.util.EmptyStackException;
+
+/**
+ * @author Madhuri Jujare
+ * @version 09-04-15
+ * CLASS: ListStack
+ * This class realizes the DStack interface.
+ */
+public class ListStack implements DStack
+{
+    
+    class Node
+    {
+        private double value;
+        private Node next;
+        
+        /**
+         * Constructor for Node class
+         */
+        public Node(double d)
+        {
+            value = d;
+            next = null;
+        }
+    }
+    
+    private Node head;
+    
+    /**
+     * Constructor for ListStack class
+     */
+    public ListStack()
+    {
+        head = null;
+    }
+
+    /**
+     * When ListStack is empty
+     * @return empty head
+     */
+    public boolean isEmpty()
+    {
+        return head == null;
+    }
+
+    /**
+     * push
+     * pushes (inserts) value into stack
+     */
+    public void push(double d)
+    {
+        Node node = new Node(d);
+        node.next = head;
+        head = node;
+    }
+    
+    /**
+     * pop
+     * @return the deleted value
+     * @throws EmptyStackException if sack is empty
+     */
+    public double pop()
+    {
+        if (head == null)
+            throw new EmptyStackException();
+        else {
+            double temp = head.value;
+            head = head.next;
+            return temp;
+        }
+    }
+
+    /**
+     * peek
+     * @return value of head
+     * @throws EmptyStackException if Stack is empty
+     */
+    public double peek()
+    {
+        if (head == null)
+            throw new EmptyStackException();
+        else 
+            return head.value;
+    }
+}
