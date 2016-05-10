@@ -1,0 +1,18 @@
+public class Reverse2
+{
+    public static void main()
+    {
+        double[] temp = new double[12];
+        for (int i = 0; i < temp.length; i++)
+            temp[i] = i / 10.0;
+       // DStack s = new tempStack();
+        DStack s = new ListStack();
+        for (int i = 0; i < temp.length; i++)
+            s.push(temp[i]);
+        
+        for (int i = 0; i < temp.length; i++) {
+            double d = s.pop();
+            System.out.println("i = " + i + ", d = " + d);
+        }
+    }
+}
